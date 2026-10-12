@@ -3,13 +3,13 @@ import Header from './Header'
 import Footer from './Footer'
 import Content from './Content'
 
-function Layout({ children }) {
+function Layout({ children, onFooterClick }) {
   return (
     <div className="app">
       <Header>
         {children}
       </Header>
-      <Footer />
+      <Footer onFooterClick={onFooterClick} />
     </div>
   )
 }
@@ -36,9 +36,13 @@ const contets = [
   }
 ]
 function App() {
+  const handleFooterClick = () => {
+    alert('フッターがクリックされました');
+  };
+
   return (
 
-    <Layout>
+    <Layout onFooterClick={handleFooterClick}>
          {/*教科書P78の内容 */}
         {contets.map((content) => (<Content key={content.id} {...content} />))}
         < Content id = "jsx" title = "JSX" description = "JSXは、JavaScriptの中でHTMLのような構文を使えるようにする拡張機能です。Reactでは、UIを定義するためにJSXを使用します。"/>
