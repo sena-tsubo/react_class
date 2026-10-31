@@ -1,11 +1,5 @@
-import Navigation from './Navigation';
-const Header = () => {
-  return (
-    <header>
-      <h1>React学習</h1>
-      <Navigation />
-    </header>
-  )
+const Header = ({ children }) => {
+  return <header>{children}</header>
 }
 
 export default Header;
