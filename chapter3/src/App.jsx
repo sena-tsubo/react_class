@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
 
+import Button from './button'
+import DisplayValue from './displayValue'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     
+      {/* Button コンポーネントを画面に表示します。 */}
+      <Button />
+      {/* DisplayValue コンポーネントを画面に表示します。 */}
+      <DisplayValue />
     </>
   )
 }
