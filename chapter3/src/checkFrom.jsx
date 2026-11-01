@@ -1,7 +1,7 @@
 import {useState} from "react";
 
  {/*利用規約に同意したら送信できるフォーム */}
-const checkForm = () => {
+const CheckForm = () => {
     const [isAgreed, setIsAgreed] = useState(false);
     const handleCheckboxChange = (event) => {
         setIsAgreed(event.target.checked);
@@ -25,4 +25,4 @@ const checkForm = () => {
     )
 
 }
-export default checkForm;
+export default CheckForm;
