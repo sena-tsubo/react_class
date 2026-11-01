@@ -1,7 +1,7 @@
 
 import Button from './button'
 import DisplayValue from './displayValue'
-import CheckForm from './checkForm'
+import CheckForm from './checkFrom'
 function App() {
   return (
     <>
