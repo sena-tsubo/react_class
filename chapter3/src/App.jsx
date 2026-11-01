@@ -1,6 +1,7 @@
 
 import Button from './button'
 import DisplayValue from './displayValue'
+import CheckForm from './checkFrom'
 function App() {
   return (
     <>
@@ -8,6 +9,7 @@ function App() {
       <Button />
       {/* DisplayValue コンポーネントを画面に表示します。 */}
       <DisplayValue />
+      <CheckForm />
     </>
   )
 }
