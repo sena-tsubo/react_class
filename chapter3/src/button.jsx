@@ -4,7 +4,7 @@ const Button = () => {
     // count は現在の数、setCount は count を更新するための関数です。
     // 最初の数を 0 にして、このコンポーネントの状態として保存します。
     const [count, setCount] = useState(0)
-
+    
     return (
         <>
             {/* クリックするたびに count を 1 増やします。 */}
