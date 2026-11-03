@@ -1,11 +1,7 @@
-import Counter from "./chapter02/counter.jsx";
+import Reducer from "../chapter03/Reducer.jsx";
 
 function App() {
-  return (
-    <>
-     <Counter />
-    </>
-  )
+  return <Reducer />;
 }
 
 export default App;
