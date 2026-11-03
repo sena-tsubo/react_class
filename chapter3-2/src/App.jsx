@@ -1,7 +1,7 @@
-import Reducer from "../chapter03/Reducer.jsx";
+import Calc from "../chapter03/Calc.jsx";
 
 function App() {
-  return <Reducer />;
+  return <Calc />;
 }
 
 export default App;
