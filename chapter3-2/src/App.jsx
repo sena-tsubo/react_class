@@ -1,11 +1,13 @@
-import Counter from "./chapter02/counter.jsx";
-
+import Calc from "../chapter03/Calc.jsx";
+import TaskApp from "../chapter03/TaskApp.jsx";
+import "./App.css";
 function App() {
   return (
-    <>
-     <Counter />
-    </>
-  )
+    <div className="app-shell">
+      <Calc />
+      <TaskApp />
+    </div>
+  );
 }
 
 export default App;
