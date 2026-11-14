@@ -9,6 +9,12 @@ function reducer(state, action) {
       return [...state, action.payload];
     case "DELETE":
       return state.filter((task) => task.id !== action.payload);
+    case "EDIT":
+      return state.map((task) =>
+        task.id === action.payload.id
+          ? { ...task, title: action.payload.title }
+          : task,
+      );
     default:
       return state;
   }
@@ -31,6 +37,13 @@ function TaskApp() {
 
   const handleTaskDelete = (id) => {
     dispatch({ type: "DELETE", payload: id });
+  };
+
+  const handleTaskEdit = (id, title) => {
+    dispatch({
+      type: "EDIT",
+      payload: { id, title },
+    });
   };
 
   return (
@@ -61,6 +74,7 @@ function TaskApp() {
               key={task.id}
               task={task}
               onDelete={handleTaskDelete}
+              onEdit={handleTaskEdit}
             />
           ))}
         </div>

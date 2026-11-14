@@ -72,47 +72,45 @@ body {
   gap: 10px;
 }
 
-.calc-actions button {
+.calc-actions button,
+.task-create,
+.task-delete,
+.task-edit {
   box-sizing: border-box;
-  min-height: 46px;
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #34364c;
   font: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition:
     background-color 160ms ease,
-    border-color 240ms ease,
-    box-shadow 240ms ease;
+    border-color 160ms ease;
 }
 
-.calc-actions button:hover {
-  border-color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+.calc-actions button:hover,
+.task-create:not(:disabled):hover,
+.task-delete:hover,
+.task-edit:hover {
+  border-color: #9ca3af;
+  background: #e5e7eb;
 }
 
 .calc-actions button:focus-visible,
-.task-input:focus-visible,
-.task-create:focus-visible {
+.task-create:focus-visible,
+.task-delete:focus-visible,
+.task-edit:focus-visible,
+.task-input:focus-visible {
   outline: 3px solid #aeb2c0;
   outline-offset: 3px;
 }
 
 .calc-actions .calc-reset {
   grid-column: 1 / -1;
-  border-color: #e5e7eb;
-  background: #f3f4f6;
-  color: #34364c;
-}
-
-.calc-actions .calc-reset:hover {
-  border-color: #fff;
-  background: #fff;
 }
 
 .task-card {
@@ -154,29 +152,10 @@ body {
 
 .task-create {
   min-width: 88px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  border-radius: 13px;
-  background: #34364c;
-  color: #fff;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 650;
-  cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    border-color 240ms ease;
-}
-
-.task-create:not(:disabled):hover {
-  border-color: #777b8c;
-  background: #292b42;
 }
 
 .task-create:disabled {
-  border-color: #e5e7eb;
-  background: #e5e7eb;
-  color: #8b8e9b;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 
@@ -202,7 +181,7 @@ body {
   display: flex;
   min-width: 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
   padding: 12px 14px;
   border: 1px solid #e8e9ef;
@@ -211,6 +190,7 @@ body {
 }
 
 .task-row-title {
+  margin-right: auto;
   overflow-wrap: anywhere;
   color: #34364c;
   font-size: 15px;
@@ -218,27 +198,14 @@ body {
 
 .task-delete {
   flex: 0 0 auto;
+  min-height: 38px;
   padding: 7px 12px;
-  border: 1px solid #dedfe5;
-  border-radius: 9px;
-  background: #f5f5f7;
-  color: #555866;
-  font: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  transition:
-    border-color 200ms ease,
-    background-color 160ms ease;
 }
 
-.task-delete:hover {
-  border-color: #aeb0b9;
-  background: #e9eaee;
-}
-
-.task-delete:focus-visible {
-  outline: 3px solid #aeb2c0;
-  outline-offset: 3px;
+.task-edit {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 7px 12px;
 }
 
 @media (max-width: 680px) {
