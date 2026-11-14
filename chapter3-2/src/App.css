@@ -1,184 +1,285 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(196, 181, 253, 0.3), transparent 34rem),
+    #f5f6fb;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+#root {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  border: 0;
+  text-align: left;
 }
 
-#center {
+.app-shell {
+  width: min(560px, calc(100% - 40px));
+  margin: 56px auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.calc-card,
+.task-card {
+  min-width: 0;
+  padding: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  box-shadow: 0 18px 48px rgba(37, 43, 74, 0.1);
+}
+
+.calc-card {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
+  justify-content: center;
+  color: #f8f7ff;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(167, 139, 250, 0.34), transparent 13rem),
+    linear-gradient(145deg, #26274f, #37346e 58%, #514595);
+}
+
+.calc-card h1 {
+  margin: 0 0 28px;
+  color: inherit;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.calc-value {
+  display: grid;
+  min-height: 148px;
   place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  margin: 0 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(15, 16, 48, 0.28);
+  color: #fff;
+  font-size: clamp(56px, 8vw, 78px);
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.calc-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.calc-actions button {
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+.calc-actions button:hover {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.calc-actions button:focus-visible,
+.task-input:focus-visible,
+.task-create:focus-visible {
+  outline: 3px solid #aeb2c0;
+  outline-offset: 3px;
 }
 
-.ticks {
-  position: relative;
+.calc-actions .calc-reset {
+  grid-column: 1 / -1;
+  border-color: #e5e7eb;
+  background: #f3f4f6;
+  color: #34364c;
+}
+
+.calc-actions .calc-reset:hover {
+  border-color: #fff;
+  background: #fff;
+}
+
+.task-card {
+  background: rgba(255, 255, 255, 0.88);
+  color: #34364c;
+}
+
+.task-title {
+  margin: 2px 0 28px;
+  color: #292b42;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.task-input {
+  box-sizing: border-box;
   width: 100%;
+  min-height: 54px;
+  padding: 0 17px;
+  border: 1px solid #e1e3ef;
+  border-radius: 13px;
+  background: #f8f9fd;
+  color: #292b42;
+  font: inherit;
+  font-size: 15px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.task-create {
+  min-width: 88px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: #34364c;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 240ms ease;
+}
+
+.task-create:not(:disabled):hover {
+  border-color: #777b8c;
+  background: #292b42;
+}
+
+.task-create:disabled {
+  border-color: #e5e7eb;
+  background: #e5e7eb;
+  color: #8b8e9b;
+  cursor: not-allowed;
+}
+
+.task-input::placeholder {
+  color: #9296aa;
+}
+
+.task-input:focus {
+  border-color: #777b8c;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(52, 54, 76, 0.1);
+}
+
+.task-list {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.task-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e8e9ef;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.task-row-title {
+  overflow-wrap: anywhere;
+  color: #34364c;
+  font-size: 15px;
+}
+
+.task-delete {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border: 1px solid #dedfe5;
+  border-radius: 9px;
+  background: #f5f5f7;
+  color: #555866;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    background-color 160ms ease;
+}
+
+.task-delete:hover {
+  border-color: #aeb0b9;
+  background: #e9eaee;
+}
+
+.task-delete:focus-visible {
+  outline: 3px solid #aeb2c0;
+  outline-offset: 3px;
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    width: min(460px, calc(100% - 28px));
+    margin: 28px auto;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .calc-card,
+  .task-card {
+    padding: 26px;
+    border-radius: 20px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .calc-card h1 {
+    margin-bottom: 20px;
+  }
+
+  .calc-value {
+    min-height: 120px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task-create {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
