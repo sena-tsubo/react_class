@@ -1,0 +1,35 @@
+.video-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.video {
+  width: min(720px, 100%);
+  border-radius: 8px;
+  background: #000;
+}
+
+.video-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.video-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  background: var(--social-bg);
+  cursor: pointer;
+}
+
+.video-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
