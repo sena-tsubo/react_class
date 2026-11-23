@@ -25,6 +25,13 @@ function VideoControll() {
         ref={videoRef}
         className="video"
         src={videoUri}
+        controls
+        muted={false}
+        onLoadedMetadata={() => {
+          if (videoRef.current) {
+            videoRef.current.volume = 1
+          }
+        }}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       />
