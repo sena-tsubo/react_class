@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { FaPlay, FaStop } from 'react-icons/fa'
-import videoUri from '../assets/video.mp4'
+import videoUri from '../assets/sample.mp4'
 import './VideoControll.css'
 
 function VideoControll() {
